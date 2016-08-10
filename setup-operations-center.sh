@@ -46,7 +46,7 @@ INIT=/var/lib/jenkins-oc/init.groovy.d/security-realm-azure.groovy
 curl $rooturl/security-realm-azure.groovy -o $INIT
 sed -i "s/__REPLACE_WITH_PASSWORD__/$adminPassword/" "$INIT"
 
-chown -R jenkins-oc:jenkins-oc /var/lib/jenkins-oc/
+chown -Rf jenkins-oc:jenkins-oc /var/lib/jenkins-oc/
 
 
 # Configure Jenkins root URL
@@ -77,4 +77,3 @@ echo "    size: $size" >> /var/lib/jenkins-oc/.cloudbees-referrer.txt
 echo "    subscriptionId: $subscription" >> /var/lib/jenkins-oc/.cloudbees-referrer.txt
 
 /etc/init.d/jenkins-oc restart
-
